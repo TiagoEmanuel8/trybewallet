@@ -1,0 +1,20 @@
+.login-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 20%;
+}
+
+/* .login-container button {
+  background-color: seagreen;
+  border: 0;
+  border-radius: 4px;
+  color: white;
+}
+
+.login-container button:disabled {
+  background-color: #555;
+  color: white;
+  cursor: not-allowed;
+}  */
