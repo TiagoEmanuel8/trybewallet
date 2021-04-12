@@ -17,16 +17,16 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit() {
-    const { actionAddEmail } = this.props;
-    const { email } = this.state;
-    actionAddEmail(email);
-  }
-
   handleChange({ target: { name, value } }) {
     this.setState({
       [name]: value,
     });
+  }
+
+  handleSubmit() {
+    const { email } = this.state;
+    const { addEmailToStore } = this.props;
+    addEmailToStore(email);
   }
 
   checkedValidation() {
@@ -76,11 +76,11 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-  actionAddEmail: PropTypes.func.isRequired,
+  addEmailToStore: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  actionAddEmail: (email) => dispatch(actionAddEmail(email)),
+  addEmailToStore: (email) => dispatch(actionAddEmail(email)),
 });
 
 export default connect(null, mapDispatchToProps)(Login);
