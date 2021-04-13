@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import actionAddEmail from '../redux/actions/index';
+import actionAddEmail from '../actions/index';
 import './Login.css';
 
 class Login extends React.Component {
