@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import actionAddEmail from '../actions/index';
-import './Login.css';
+import './LoginForm.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -42,6 +42,7 @@ class Login extends React.Component {
     return (
       <form
         autoComplete="off"
+        className="form"
       >
         <div className="login-container">
           <input
@@ -76,7 +77,7 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-  addEmailToStore: PropTypes.func.isRequired,
+  addEmailToStore: PropTypes.string.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
