@@ -13,7 +13,7 @@ class Header extends React.Component {
     const { getEmailStore } = this.props;
     return (
       <header className="header">
-        <p>{ getEmailStore }</p>
+        <p data-testid="email-field">{ getEmailStore }</p>
         <p data-testid="total-field">0</p>
         <p data-testid="header-currency-field">BRL</p>
       </header>
