@@ -9,6 +9,8 @@ class Expensives extends React.Component {
     this.expensivesTable = this.expensivesTable.bind(this);
   }
 
+  // Req 5 - Tabela que exibe o valor do estado global + formato exigido pelo requisito
+
   expensivesTable(element) {
     const { currency, description, method, tag, value, exchangeRates, id } = element;
     const currencyCoin = exchangeRates[currency];
@@ -30,6 +32,8 @@ class Expensives extends React.Component {
       </tr>
     );
   }
+
+  // Req 5 - tabela de despesas
 
   render() {
     const { expenses } = this.props;

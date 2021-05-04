@@ -160,7 +160,6 @@ class Wallet extends React.Component {
   }
 
   render() {
-
     // Req 4 - Criar os inputs que o requisito pede
     // Req 4 - Criar o botão que salva a despesa total na store
 
