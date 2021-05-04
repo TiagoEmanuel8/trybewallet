@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
+import Expensives from '../components/Expensives';
 import { fetchApi, fetchExpense } from '../actions/actionFetchCoin';
 
 const INITIAL_STATE = {
@@ -37,6 +38,8 @@ class Wallet extends React.Component {
     this.setState({ [name]: value });
   }
 
+  // Req 4 - Pegando os tipos das moedas da store e jogando dentro das options
+
   inputCurrencies() {
     const { typeCurrencies } = this.props;
     return (
@@ -49,7 +52,7 @@ class Wallet extends React.Component {
   }
 
   // Tive ajuda do Rafa Reis para desenvolver essa parte do requisito
-  // Refatorar essas minifunções caso dê tempo
+  // Refatorar essas minifunções baseado no recipesApp
 
   valueInput() {
     const { value } = this.state;
@@ -108,7 +111,7 @@ class Wallet extends React.Component {
     const { method } = this.state;
     return (
       <label htmlFor="method">
-        Método de pagamento
+        Forma de pagamento
         <select
           id="method"
           name="method"
@@ -146,6 +149,8 @@ class Wallet extends React.Component {
     );
   }
 
+  // Req 4 - Função que vai jogar o valor total na store e setar o valor dos campos ao estado inicial
+
   AddExpense() {
     const { addExpense } = this.props;
     addExpense(this.state);
@@ -155,6 +160,10 @@ class Wallet extends React.Component {
   }
 
   render() {
+
+    // Req 4 - Criar os inputs que o requisito pede
+    // Req 4 - Criar o botão que salva a despesa total na store
+
     return (
       <main>
         <Header />
@@ -171,6 +180,7 @@ class Wallet extends React.Component {
             Adicionar despesa
           </button>
         </form>
+        <Expensives />
       </main>
     );
   }
@@ -185,6 +195,8 @@ Wallet.propTypes = {
 const mapStateToProps = (state) => ({
   typeCurrencies: state.wallet.currencies,
 });
+
+// Req 4 - getCurrencies vai pegar os tipos de moedas na API
 
 const mapDispatchToProps = (dispatch) => ({
   getCurrencies: () => dispatch(fetchApi()),

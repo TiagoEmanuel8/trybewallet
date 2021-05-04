@@ -23,11 +23,15 @@ class Login extends React.Component {
     });
   }
 
+  // req 1 - Função que vai enviar o email para a store
+
   handleSubmit() {
     const { email } = this.state;
     const { addEmailToStore } = this.props;
     addEmailToStore(email);
   }
+
+  // req 1 - Função responsável por fazer a verificação de email e senha
 
   checkedValidation() {
     const { password, email } = this.state;
@@ -36,6 +40,8 @@ class Login extends React.Component {
     if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) { return false; }
     return true;
   }
+
+  // req 1 - Forms de login e rota mudando para alternar na aplicação
 
   render() {
     const { email, password } = this.state;
@@ -79,6 +85,8 @@ class Login extends React.Component {
 Login.propTypes = {
   addEmailToStore: PropTypes.string.isRequired,
 };
+
+// req 1 - Como quero esse parâmetro é justamente o que quero salvar na store
 
 const mapDispatchToProps = (dispatch) => ({
   addEmailToStore: (email) => dispatch(actionAddEmail(email)),

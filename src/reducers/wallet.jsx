@@ -6,6 +6,9 @@ const INITIAL_STATE = {
   idCount: 0,
 };
 
+// Req 4 - Função responsável por adicionar o contador de id na chave expense e materializar todo o formato do estado pedido no requisito na chave expenses e de brinde ainda temos um 2º contador
+// Obs: Essa função vai servir como base para ser chamada dentro do reducer Wallet
+
 const addExpense = (state = INITIAL_STATE, action) => {
   const { idCount, expenses } = state;
   const expense = {
@@ -21,6 +24,8 @@ const addExpense = (state = INITIAL_STATE, action) => {
     idCount: idCount + 1,
   };
 };
+
+// Req 4 - Esse Reducer vai gerenciar o tipo de moeda e despachar a despesa já com o formato desejado pelo requisito
 
 const wallet = (state = INITIAL_STATE, action) => {
   switch (action.type) {
