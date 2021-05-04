@@ -1,4 +1,4 @@
-import { TYPE_COIN, ADD_EXPENSE } from '../actions/actionTypes';
+import { TYPE_COIN, ADD_EXPENSE, REMOVE_EXPENSE } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -25,7 +25,14 @@ const addExpense = (state = INITIAL_STATE, action) => {
   };
 };
 
-// Req 4 - Esse Reducer vai gerenciar o tipo de moeda e despachar a despesa já com o formato desejado pelo requisito
+// Req 6 - Função que vai retornar uma chave vazia
+
+const removeExpense = (state = INITIAL_STATE, action) => ({
+  ...state,
+  expenses: state.expenses.filter((expense) => expense.id !== action.id),
+});
+
+// Esse Reducer vai gerenciar o tipo de moeda e despachar a despesa já com o formato desejado pelo requisito
 
 const wallet = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -36,6 +43,8 @@ const wallet = (state = INITIAL_STATE, action) => {
     };
   case ADD_EXPENSE:
     return addExpense(state, action);
+  case REMOVE_EXPENSE:
+    return removeExpense(state, action);
   default:
     return state;
   }
