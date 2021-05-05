@@ -36,7 +36,12 @@ class Expensives extends React.Component {
           >
             Excluir
           </button>
-          <button type="button">Excluir</button>
+          <button
+            type="button"
+            data-testid="edit-btn"
+          >
+            Editar
+          </button>
         </td>
       </tr>
     );
