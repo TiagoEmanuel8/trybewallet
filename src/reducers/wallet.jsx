@@ -26,6 +26,7 @@ const addExpense = (state = INITIAL_STATE, action) => {
 };
 
 // Req 6 - Função que vai retornar uma chave vazia
+// Obs: Essa função vai servir como base para ser chamada dentro do reducer Wallet
 
 const removeExpense = (state = INITIAL_STATE, action) => ({
   ...state,
