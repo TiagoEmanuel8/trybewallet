@@ -41,9 +41,9 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  getEmailStore: PropTypes.string.isRequired,
-  expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
+  getEmailStore: PropTypes.string,
+  expenses: PropTypes.arrayOf(PropTypes.object),
+}.isRequired;
 
 // req 3 - esse getEmailStore é onde pego o email da store e vou jogar dentro do header
 

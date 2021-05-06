@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Expensives from '../components/Expensives';
 import { fetchApi, fetchExpense } from '../actions/actionFetchCoin';
+import actionEditExpenses from '../actions/actionEditExpenses';
 
 const INITIAL_STATE = {
   currency: 'USD',
@@ -27,6 +28,7 @@ class Wallet extends React.Component {
     this.payInput = this.payInput.bind(this);
     this.expense = this.expense.bind(this);
     this.AddExpense = this.AddExpense.bind(this);
+    this.EditExpense = this.EditExpense.bind(this);
   }
 
   componentDidMount() {
@@ -159,6 +161,18 @@ class Wallet extends React.Component {
     });
   }
 
+  // Req 7 - Fui ajudado pelo Rafa reis
+  // Req 7 - Função que vou jogar um novo array editado pro redux
+
+  EditExpense() {
+    const { expenses, filteredExpense, newExpense } = this.props;
+    const { id, exchangeRates } = filteredExpense;
+    const editMode = expenses.map((dataExpense) => (dataExpense === filteredExpense ? {
+      ...this.state, id, exchangeRates,
+    } : dataExpense));
+    newExpense(editMode);
+  }
+
   render() {
     // Req 4 - Criar os inputs que o requisito pede
     // Req 4 - Criar o botão que salva a despesa total na store
@@ -172,10 +186,10 @@ class Wallet extends React.Component {
           { this.currencyInput() }
           { this.payInput() }
           { this.expense() }
-          <button
-            type="button"
-            onClick={ this.AddExpense }
-          >
+          <button type="button" onClick={ () => this.EditExpense() }>
+            Editar despesa
+          </button>
+          <button type="button" onClick={ () => this.AddExpense() }>
             Adicionar despesa
           </button>
         </form>
@@ -186,13 +200,18 @@ class Wallet extends React.Component {
 }
 
 Wallet.propTypes = {
-  getCurrencies: PropTypes.func.isRequired,
-  typeCurrencies: PropTypes.arrayOf.isRequired,
-  addExpense: PropTypes.func.isRequired,
-};
+  getCurrencies: PropTypes.func,
+  typeCurrencies: PropTypes.arrayOf,
+  addExpense: PropTypes.func,
+  edit: PropTypes.bool,
+}.isRequired;
 
 const mapStateToProps = (state) => ({
   typeCurrencies: state.wallet.currencies,
+  edit: state.wallet.editOn,
+  expenses: state.wallet.expenses,
+  dataEdit: state.wallet.editExpense,
+  filteredExpense: state.wallet.editExpense,
 });
 
 // Req 4 - getCurrencies vai pegar os tipos de moedas na API
@@ -200,6 +219,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getCurrencies: () => dispatch(fetchApi()),
   addExpense: (expense) => dispatch(fetchExpense(expense)),
+  newExpense: (newExpense) => dispatch(actionEditExpenses(newExpense)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wallet);

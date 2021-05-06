@@ -83,8 +83,8 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-  addEmailToStore: PropTypes.string.isRequired,
-};
+  addEmailToStore: PropTypes.string,
+}.isRequired;
 
 // req 1 - Como quero esse parâmetro é justamente o que quero salvar na store
 

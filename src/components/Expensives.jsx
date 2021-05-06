@@ -2,12 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import actionRemoveExpense from '../actions/actionRemoveCoin';
+import actionBotao from '../actions/actionBotao';
 
 class Expensives extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
     this.expensivesTable = this.expensivesTable.bind(this);
+    this.editExpense = this.editExpense.bind(this);
+  }
+
+  editExpense(id) {
+    const { editarfuncao, expenses } = this.props;
+    const filterId = expenses.find((element) => element.id === id);
+    editarfuncao(true, filterId);
   }
 
   // Req 5 - Tabela que exibe o valor do estado global + formato exigido pelo requisito
@@ -39,6 +47,7 @@ class Expensives extends React.Component {
           <button
             type="button"
             data-testid="edit-btn"
+            onClick={ () => this.editExpense(id) }
           >
             Editar
           </button>
@@ -79,9 +88,10 @@ class Expensives extends React.Component {
 }
 
 Expensives.propTypes = {
-  expenses: PropTypes.arrayOf.isRequired,
-  removeData: PropTypes.func.isRequired,
-};
+  expenses: PropTypes.arrayOf,
+  removeData: PropTypes.func,
+  editarfuncao: PropTypes.func,
+}.isRequired;
 
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
@@ -89,6 +99,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   removeData: (id) => dispatch(actionRemoveExpense(id)),
+  editarfuncao: (bool, id) => dispatch(actionBotao(bool, id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Expensives);
