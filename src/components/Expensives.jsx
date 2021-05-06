@@ -12,6 +12,8 @@ class Expensives extends React.Component {
     this.editExpense = this.editExpense.bind(this);
   }
 
+  // Req 7 - Função para filtrar a despesa pelo id e envia para o estado global e de bônus habilita a função para o botão ficar dinâmico
+
   editExpense(id) {
     const { editarfuncao, expenses } = this.props;
     const filterId = expenses.find((element) => element.id === id);
@@ -20,6 +22,7 @@ class Expensives extends React.Component {
 
   // Req 5 - Tabela que exibe o valor do estado global + formato exigido pelo requisito
   // Req 6 - Disparando a função que deleta despesas na API
+  // Req 7 - Começa aqui o botão pra editar a função
 
   expensivesTable(element) {
     const { removeData } = this.props;

@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Expensives from '../components/Expensives';
 import { fetchApi, fetchExpense } from '../actions/actionFetchCoin';
 import actionEditExpenses from '../actions/actionEditExpenses';
+import actionBotao from '../actions/actionBotao';
 
 const INITIAL_STATE = {
   currency: 'USD',
@@ -161,22 +162,24 @@ class Wallet extends React.Component {
     });
   }
 
-  // Req 7 - Fui ajudado pelo Rafa reis
-  // Req 7 - Função que vou jogar um novo array editado pro redux
+  // Req 7 - Nesse requisito 7 fui ajudado pelo Rafa Reis
+  // Req 7 - Função que vou pegar o objeto com despesas e retorno um novo objeto com o array com o estado local + id e moedas
+  // Req 7 - De brinde vou passar o valor false em editarfuncao para trocar o nome do botão e função do botão
 
   EditExpense() {
-    const { expenses, filteredExpense, newExpense } = this.props;
+    const { expenses, filteredExpense, newExpense, editarfuncao } = this.props;
     const { id, exchangeRates } = filteredExpense;
     const editMode = expenses.map((dataExpense) => (dataExpense === filteredExpense ? {
       ...this.state, id, exchangeRates,
     } : dataExpense));
     newExpense(editMode);
+    editarfuncao(false, 0);
   }
 
   render() {
     // Req 4 - Criar os inputs que o requisito pede
     // Req 4 - Criar o botão que salva a despesa total na store
-
+    const { edit } = this.props;
     return (
       <main>
         <Header />
@@ -186,12 +189,13 @@ class Wallet extends React.Component {
           { this.currencyInput() }
           { this.payInput() }
           { this.expense() }
-          <button type="button" onClick={ () => this.EditExpense() }>
-            Editar despesa
+          <button
+            type="button"
+            onClick={ () => (edit ? this.EditExpense() : this.AddExpense()) }
+          >
+            { edit ? 'Editar despesa' : 'Adicionar depesa' }
           </button>
-          <button type="button" onClick={ () => this.AddExpense() }>
-            Adicionar despesa
-          </button>
+          )
         </form>
         <Expensives />
       </main>
@@ -220,6 +224,7 @@ const mapDispatchToProps = (dispatch) => ({
   getCurrencies: () => dispatch(fetchApi()),
   addExpense: (expense) => dispatch(fetchExpense(expense)),
   newExpense: (newExpense) => dispatch(actionEditExpenses(newExpense)),
+  editarfuncao: (bool, id) => dispatch(actionBotao(bool, id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
