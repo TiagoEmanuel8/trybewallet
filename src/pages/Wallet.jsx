@@ -179,7 +179,15 @@ class Wallet extends React.Component {
   render() {
     // Req 4 - Criar os inputs que o requisito pede
     // Req 4 - Criar o botão que salva a despesa total na store
-    const { edit } = this.props;
+
+    // Req 7 - Ajuda do Ricci pra fazer esse botão dinamicamente, achei muito legal a solução
+    //   <button
+    //   type="button"
+    //   onClick={ () => (edit ? this.EditExpense() : this.AddExpense()) }
+    // >
+    //   { edit ? 'Editar despesa' : 'Adicionar depesa' }
+    // </button>
+
     return (
       <main>
         <Header />
@@ -189,11 +197,11 @@ class Wallet extends React.Component {
           { this.currencyInput() }
           { this.payInput() }
           { this.expense() }
-          <button
-            type="button"
-            onClick={ () => (edit ? this.EditExpense() : this.AddExpense()) }
-          >
-            { edit ? 'Editar despesa' : 'Adicionar depesa' }
+          <button type="button" onClick={ () => this.EditExpense() }>
+            Editar despesa
+          </button>
+          <button type="button" onClick={ () => this.AddExpense() }>
+            Adicionar despesa
           </button>
           )
         </form>
