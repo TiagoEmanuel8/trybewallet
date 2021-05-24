@@ -11,7 +11,7 @@ const addExpense = (expenses) => ({
   expenses,
 });
 
-// Nessa lógica do fetchAPI tive ajuda do Lucas Neves
+// O Lucas Neves me ajudou a ajeitar um bug na minha lógica do req. 4
 
 // Req 4 - Thunk responsável por tratar a API, pegar as chaves e excluir 'USDT' - ligar as Options
 

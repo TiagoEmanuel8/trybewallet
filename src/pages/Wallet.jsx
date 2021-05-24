@@ -54,8 +54,8 @@ class Wallet extends React.Component {
     );
   }
 
-  // Tive ajuda do Rafa Reis para desenvolver essa parte do requisito
-  // Refatorar essas minifunções baseado no recipesApp
+  // Rafa Reis me deu uma dica legal de refatoração - 
+  // Para Refatorar essas minifunções baseado no recipesApp
 
   valueInput() {
     const { value } = this.state;
@@ -162,7 +162,7 @@ class Wallet extends React.Component {
     });
   }
 
-  // Req 7 - Nesse requisito 7 fui ajudado pelo Rafa Reis
+  // Req 7 - O Rafa Reis me explicou esse requisito 7
   // Req 7 - Função que vou pegar o objeto com despesas e retorno um novo objeto com o array com o estado local + id e moedas
   // Req 7 - De brinde vou passar o valor false em editarfuncao para trocar o nome do botão e função do botão
 
@@ -180,7 +180,8 @@ class Wallet extends React.Component {
     // Req 4 - Criar os inputs que o requisito pede
     // Req 4 - Criar o botão que salva a despesa total na store
 
-    // Req 7 - Ajuda do Ricci pra fazer esse botão dinamicamente, achei muito legal a solução
+    // Req 7 - Fiz certo,  porém o EsLint está impedindo a avaliação então pedi
+    // Ajuda do Ricci pra fazer esse botão dinamicamente, achei muito legal a solução
     //   <button
     //   type="button"
     //   onClick={ () => (edit ? this.EditExpense() : this.AddExpense()) }
