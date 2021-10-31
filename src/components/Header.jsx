@@ -17,7 +17,8 @@ class Header extends React.Component {
       const sumExpense = Number(value) * Number(dayCurrency.ask);
       return sumExpense;
     });
-    return expensesMap.reduce((total, expense) => total + expense, 0);
+    const totalValue = expensesMap.reduce((total, expense) => total + expense, 0);
+    return Math.round(totalValue);
   }
 
   render() {

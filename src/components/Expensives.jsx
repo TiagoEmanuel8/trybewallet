@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import actionRemoveExpense from '../actions/actionRemoveCoin';
 import actionBotao from '../actions/actionBotao';
+import './Expensives.css';
 
 class Expensives extends React.Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class Expensives extends React.Component {
         <td>Real</td>
         <td>
           <button
+            className="deleteButton"
             type="button"
             data-testid="delete-btn"
             onClick={ () => removeData(id) }
@@ -42,6 +44,7 @@ class Expensives extends React.Component {
             Excluir
           </button>
           <button
+            className="editButton"
             type="button"
             data-testid="edit-btn"
             onClick={ () => this.editExpense(id) }
@@ -68,12 +71,12 @@ class Expensives extends React.Component {
               <th>Câmbio utilizado</th>
               <th>Valor convertido</th>
               <th>Moeda de conversão</th>
-              <th>Editar/Excluir</th>
+              <th>Ação</th>
             </tr>
           </thead>
           <tbody>
             { expenses.length === 0
-              ? <div>vazio</div>
+              ? ''
               : expenses.map((element) => this.expensivesTable(element))}
           </tbody>
         </table>
