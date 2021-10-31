@@ -23,15 +23,11 @@ class Login extends React.Component {
     });
   }
 
-  // req 1 - Função que vai enviar o email para a store
-
   handleSubmit() {
     const { email } = this.state;
-    const { addEmailToStore } = this.props;
-    addEmailToStore(email);
+    const { expense } = this.props;
+    expense(email);
   }
-
-  // req 1 - Função responsável por fazer a verificação de email e senha
 
   checkedValidation() {
     const { password, email } = this.state;
@@ -41,55 +37,57 @@ class Login extends React.Component {
     return true;
   }
 
-  // req 1 - Forms de login e rota mudando para alternar na aplicação
-
   render() {
     const { email, password } = this.state;
     return (
-      <form
-        autoComplete="off"
-        className="form"
-      >
-        <div className="login-container">
-          <input
-            type="text"
-            name="email"
-            value={ email }
-            placeholder="email"
-            data-testid="email-input"
-            onChange={ this.handleChange }
-          />
-          <input
-            type="password"
-            name="password"
-            value={ password }
-            placeholder="password"
-            data-testid="password-input"
-            onChange={ this.handleChange }
-          />
-          <Link to="/carteira">
-            <button
-              type="submit"
-              disabled={ !this.checkedValidation() }
-              onClick={ this.handleSubmit }
-            >
-              Entrar
-            </button>
-          </Link>
+      <div className="loginPage">
+        <div className="presentationLogin">
+          <p>Que tal ter o controle das suas finanças de uma forma prática?</p>
+          <p>Insira seu email e senha e vamos lá !!!</p>
         </div>
-      </form>
+        <form
+          autoComplete="off"
+          className="form"
+        >
+          <div className="login-container">
+            <input
+              type="text"
+              name="email"
+              value={ email }
+              placeholder="email"
+              data-testid="email-input"
+              onChange={ this.handleChange }
+            />
+            <input
+              type="password"
+              name="password"
+              value={ password }
+              placeholder="password"
+              data-testid="password-input"
+              onChange={ this.handleChange }
+            />
+            <Link to="/carteira">
+              <button
+                type="submit"
+                disabled={ !this.checkedValidation() }
+                onClick={ this.handleSubmit }
+              >
+                Entrar
+              </button>
+            </Link>
+          </div>
+        </form>
+      </div>
     );
   }
 }
 
 Login.propTypes = {
-  addEmailToStore: PropTypes.string,
+  expense: PropTypes.string,
 }.isRequired;
 
-// req 1 - Como quero esse parâmetro é justamente o que quero salvar na store
-
 const mapDispatchToProps = (dispatch) => ({
-  addEmailToStore: (email) => dispatch(actionAddEmail(email)),
+  expense: (email) => dispatch(actionAddEmail(email)),
 });
 
 export default connect(null, mapDispatchToProps)(Login);

@@ -1,8 +1,10 @@
-import { TYPE_COIN,
+import {
+  TYPE_COIN,
   ADD_EXPENSE,
   REMOVE_EXPENSE,
   BOTAO_EDITAR_SALVAR,
-  EDIT_EXPENSE } from '../actions/actionTypes';
+  EDIT_EXPENSE,
+} from '../actions/actionTypes';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -11,9 +13,6 @@ const INITIAL_STATE = {
   editOn: false,
   editExpense: {},
 };
-
-// Req 4 - Função responsável por adicionar o contador de id na chave expense e materializar todo o formato do estado pedido no requisito na chave expenses e de brinde ainda temos um 2º contador
-// Obs: Essa função vai servir como base para ser chamada dentro do reducer Wallet
 
 const addExpense = (state = INITIAL_STATE, action) => {
   const { idCount, expenses } = state;
@@ -31,13 +30,10 @@ const addExpense = (state = INITIAL_STATE, action) => {
   };
 };
 
-// Req 6 - Função que vai retornar uma chave vazia
 const removeExpense = (state = INITIAL_STATE, action) => ({
   ...state,
   expenses: state.expenses.filter((expense) => expense.id !== action.id),
 });
-
-// Esse Reducer vai gerenciar o tipo de moeda e despachar a despesa já com o formato desejado pelo requisito
 
 const wallet = (state = INITIAL_STATE, action) => {
   switch (action.type) {

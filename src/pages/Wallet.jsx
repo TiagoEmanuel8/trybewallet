@@ -14,7 +14,7 @@ const INITIAL_STATE = {
   tag: 'Alimentação',
   method: 'Dinheiro',
 };
-
+// === !== <=
 class Wallet extends React.Component {
   constructor(props) {
     super(props);
@@ -45,6 +45,7 @@ class Wallet extends React.Component {
 
   inputCurrencies() {
     const { typeCurrencies } = this.props;
+    console.log(typeCurrencies);
     return (
       typeCurrencies.map((element) => (
         <option key={ element } value={ element } data-testid={ element }>
@@ -53,9 +54,6 @@ class Wallet extends React.Component {
       ))
     );
   }
-
-  // Rafa Reis me deu uma dica legal de refatoração - 
-  // Para Refatorar essas minifunções baseado no recipesApp
 
   valueInput() {
     const { value } = this.state;
@@ -152,8 +150,6 @@ class Wallet extends React.Component {
     );
   }
 
-  // Req 4 - Função que vai jogar o valor total na store e setar o valor dos campos ao estado inicial
-
   AddExpense() {
     const { addExpense } = this.props;
     addExpense(this.state);
@@ -161,10 +157,6 @@ class Wallet extends React.Component {
       ...INITIAL_STATE,
     });
   }
-
-  // Req 7 - O Rafa Reis me explicou esse requisito 7
-  // Req 7 - Função que vou pegar o objeto com despesas e retorno um novo objeto com o array com o estado local + id e moedas
-  // Req 7 - De brinde vou passar o valor false em editarfuncao para trocar o nome do botão e função do botão
 
   EditExpense() {
     const { expenses, filteredExpense, newExpense, editarfuncao } = this.props;
@@ -177,18 +169,6 @@ class Wallet extends React.Component {
   }
 
   render() {
-    // Req 4 - Criar os inputs que o requisito pede
-    // Req 4 - Criar o botão que salva a despesa total na store
-
-    // Req 7 - Fiz certo,  porém o EsLint está impedindo a avaliação então pedi
-    // Ajuda do Ricci pra fazer esse botão dinamicamente, achei muito legal a solução
-    //   <button
-    //   type="button"
-    //   onClick={ () => (edit ? this.EditExpense() : this.AddExpense()) }
-    // >
-    //   { edit ? 'Editar despesa' : 'Adicionar depesa' }
-    // </button>
-
     return (
       <main>
         <Header />
@@ -226,8 +206,6 @@ const mapStateToProps = (state) => ({
   dataEdit: state.wallet.editExpense,
   filteredExpense: state.wallet.editExpense,
 });
-
-// Req 4 - getCurrencies vai pegar os tipos de moedas na API
 
 const mapDispatchToProps = (dispatch) => ({
   getCurrencies: () => dispatch(fetchApi()),

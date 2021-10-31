@@ -1,4 +1,8 @@
 .header {
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+}
+
+.emphasisText {
+  color: #037c82;
 }
