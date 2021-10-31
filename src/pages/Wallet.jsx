@@ -6,6 +6,7 @@ import Expensives from '../components/Expensives';
 import { fetchApi, fetchExpense } from '../actions/actionFetchCoin';
 import actionEditExpenses from '../actions/actionEditExpenses';
 import actionBotao from '../actions/actionBotao';
+import './wallet.css';
 
 const INITIAL_STATE = {
   currency: 'USD',
@@ -14,7 +15,7 @@ const INITIAL_STATE = {
   tag: 'Alimentação',
   method: 'Dinheiro',
 };
-// === !== <=
+
 class Wallet extends React.Component {
   constructor(props) {
     super(props);
@@ -41,11 +42,8 @@ class Wallet extends React.Component {
     this.setState({ [name]: value });
   }
 
-  // Req 4 - Pegando os tipos das moedas da store e jogando dentro das options
-
   inputCurrencies() {
     const { typeCurrencies } = this.props;
-    console.log(typeCurrencies);
     return (
       typeCurrencies.map((element) => (
         <option key={ element } value={ element } data-testid={ element }>
@@ -178,13 +176,22 @@ class Wallet extends React.Component {
           { this.currencyInput() }
           { this.payInput() }
           { this.expense() }
-          <button type="button" onClick={ () => this.EditExpense() }>
-            Editar despesa
-          </button>
-          <button type="button" onClick={ () => this.AddExpense() }>
-            Adicionar despesa
-          </button>
-          )
+          <div className="buttonForm">
+            <button
+              className="addExpense"
+              type="button"
+              onClick={ () => this.AddExpense() }
+            >
+              Adicionar despesa
+            </button>
+            <button
+              className="editExpense"
+              type="button"
+              onClick={ () => this.EditExpense() }
+            >
+              Editar despesa
+            </button>
+          </div>
         </form>
         <Expensives />
       </main>

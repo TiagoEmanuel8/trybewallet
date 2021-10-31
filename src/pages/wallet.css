@@ -1,0 +1,41 @@
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 3rem;
+  padding: 0.1rem 2rem;
+}
+
+form input {
+  margin: 0.4rem;
+}
+
+form select {
+  margin: 0.4rem;
+}
+
+form button {
+  margin: 0.1rem 0.5rem;
+}
+
+.addExpense {
+  background-color: #02781a;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.buttonForm {
+  display: flex;
+  justify-content: center;
+}
+
+.editExpense {
+  background-color: #ec8e1b;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+}
