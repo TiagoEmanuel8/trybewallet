@@ -6,17 +6,20 @@ body {
 }
 
 body input {
+  font-size: x-large;
   min-height: calc(1rem + 4vmin);
   min-width: calc(10rem + 50vmin);
 }
 
 body select {
+  font-size: x-large;
   min-height: calc(1rem + 4vmin);
   min-width: calc(10rem + 50vmin);
 }
 
 body button {
   border-radius: 5px;
+  font-size: x-large;
   min-height: calc(2rem + 2vmin);
   min-width: calc(4rem + 4vmin);
   padding: 0.5rem;
