@@ -1,5 +1,6 @@
 body {
-
-  /* font-size: calc(10px + 2vmin); */
-  font-size: 100%;
+  align-items: center;
+  display: flex;
+  font-size: calc(10px + 2vmin);
+  justify-content: center;
 }
