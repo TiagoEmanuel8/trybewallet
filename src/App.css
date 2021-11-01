@@ -9,3 +9,8 @@ body input {
   min-height: calc(2rem + 5vmin);
   min-width: calc(10rem + 50vmin);
 }
+
+body select {
+  min-height: calc(2rem + 5vmin);
+  min-width: calc(10rem + 50vmin);
+}
