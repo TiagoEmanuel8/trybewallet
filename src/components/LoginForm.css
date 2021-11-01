@@ -36,7 +36,7 @@
 .login-container input {
   margin: 1rem;
   text-align: center;
-  width: 50vh;
+  /* width: 50vh; */
 }
 
 .presentationLogin {

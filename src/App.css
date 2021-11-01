@@ -1,6 +1,11 @@
-* {
+body {
   align-items: center;
   display: flex;
   font-size: calc(10px + 2vmin);
   justify-content: center;
+}
+
+body input {
+  min-height: calc(2rem + 5vmin);
+  min-width: calc(10rem + 50vmin);
 }
