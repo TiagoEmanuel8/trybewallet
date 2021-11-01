@@ -17,5 +17,7 @@ body select {
 
 body button {
   border-radius: 5px;
+  min-height: calc(4rem + 4vmin);
+  min-width: calc(4rem + 4vmin);
   padding: 0.5rem;
 }
