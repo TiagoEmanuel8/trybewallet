@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import actionAddEmail from '../actions/actionAddEmail';
 import './LoginForm.css';
+import logo from '../images/wallet.png';
 
 class Login extends React.Component {
   constructor(props) {
@@ -41,10 +42,7 @@ class Login extends React.Component {
     const { email, password } = this.state;
     return (
       <div className="loginPage">
-        <div className="presentationLogin">
-          <p>Que tal ter o controle das suas finanças de uma forma prática?</p>
-          <p>Insira seu email e senha e vamos lá !!!</p>
-        </div>
+        <img src={ logo } alt="logo projeto" />
         <form
           autoComplete="off"
           className="form"
