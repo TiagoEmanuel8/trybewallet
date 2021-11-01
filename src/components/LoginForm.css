@@ -17,20 +17,15 @@
 .login-container button {
   background-color: seagreen;
   border: 0;
-  border-radius: 5px;
   color: white;
   cursor: pointer;
-  padding: 0.5rem;
-
 }
 
 .login-container button:disabled {
   background-color: #555;
   border: 0;
-  border-radius: 5px;
   color: white;
   cursor: not-allowed;
-  padding: 0.5rem;
 }
 
 .login-container input {

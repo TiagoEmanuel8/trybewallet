@@ -6,11 +6,16 @@ body {
 }
 
 body input {
-  min-height: calc(2rem + 5vmin);
+  min-height: calc(1rem + 4vmin);
   min-width: calc(10rem + 50vmin);
 }
 
 body select {
-  min-height: calc(2rem + 5vmin);
+  min-height: calc(1rem + 4vmin);
   min-width: calc(10rem + 50vmin);
+}
+
+body button {
+  border-radius: 5px;
+  padding: 0.5rem;
 }
