@@ -60,26 +60,29 @@ class Expensives extends React.Component {
     const { expenses } = this.props;
     return (
       <section>
-        <table>
-          <thead>
-            <tr>
-              <th>Descrição</th>
-              <th>Tag</th>
-              <th>Método de pagamento</th>
-              <th>Valor</th>
-              <th>Moeda</th>
-              <th>Câmbio utilizado</th>
-              <th>Valor convertido</th>
-              <th>Moeda de conversão</th>
-              <th>Ação</th>
-            </tr>
-          </thead>
-          <tbody>
-            { expenses.length === 0
-              ? ''
-              : expenses.map((element) => this.expensivesTable(element))}
-          </tbody>
-        </table>
+        {
+          expenses.length === 0 ? ''
+            : <table>
+              <thead>
+                <tr>
+                  <th>Descrição</th>
+                  <th>Tag</th>
+                  <th>Método de pagamento</th>
+                  <th>Valor</th>
+                  <th>Moeda</th>
+                  <th>Câmbio utilizado</th>
+                  <th>Valor convertido</th>
+                  <th>Moeda de conversão</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody>
+                { expenses.length === 0
+                  ? ''
+                  : expenses.map((element) => this.expensivesTable(element))}
+              </tbody>
+            </table>
+        }
       </section>
     );
   }
