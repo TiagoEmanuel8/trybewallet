@@ -7,7 +7,7 @@ Esse projeto teve como objetivo o de aprofundar conhecimentos em reactJs, Redux 
 Além de questões técnicas eu gosto de usar aplicativos para controle de gastos e também invisto no mercado de criptomoedas, ambas as coisas estão dentro do projeto, então o projeto foi muito proveitoso para mim.
 
 ## O que é o Trybe Wallet?
-É uma aplicação onde é possível:
+É uma aplicação **Front end** onde é possível:
 
 - Criar um usuário personalizado para armazenar dados pessoais de despesas
  - Registrar gastos e categorizá-los.
