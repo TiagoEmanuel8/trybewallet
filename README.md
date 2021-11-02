@@ -36,6 +36,7 @@ Além de questões técnicas eu gosto de usar aplicativos para controle de gasto
 
 ### Etapas do desenvolvimento desse projeto
 
+Cada tela contém subrequisitos, caso queira conhecer é só clicar em cima dos nomes que uma lista irá se expandir contendo os detalhes do desenvolvimento de cada parte desse projeto.
 
 <details>
     <summary>Página de Login</summary>
